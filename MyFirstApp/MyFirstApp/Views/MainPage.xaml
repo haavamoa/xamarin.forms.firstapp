@@ -1,20 +1,99 @@
-﻿<?xml version="1.0"
-      encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:MyFirstApp"
+             Visual="Material"
              x:Class="MyFirstApp.Views.MainPage"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
+             xmlns:dblend="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:ViewModels="clr-namespace:MyFirstApp.ViewModels;assembly=MyFirstApp"
-             d:DataContext="{d:DesignInstance ViewModels:MainViewModel}" >
-
-    <StackLayout>
+             mc:Ignorable="dblend"
+             dblend:DataContext="{dblend:DesignInstance ViewModels:MainViewModel}"
+             BackgroundColor="{StaticResource MainColor}">
+    <Grid VerticalOptions="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         <!-- SOFIE ER KUL-->
-        <Label Text="{Binding YourAge}" />
-        <Slider Value="{Binding YourAge}" Minimum="0" Maximum="1000" />
-        <Label Text="{Binding Text}" />
-    </StackLayout>
+        <Label Grid.Row="0"
+               d:Text="66"
+               Text="{Binding YourAge}"
+               TextColor="{StaticResource SecondaryColor}"
+               FontSize="40"
+               HorizontalOptions="CenterAndExpand" />
+        <StackLayout Grid.Row="1" Orientation="Vertical">
+            <Slider x:Key="Slider"
+                    d:Value="66"
+                    Value="{Binding YourAge}"
+                    Minimum="0"
+                    Maximum="{Binding MaximumAge}"
+                    ThumbColor="{StaticResource SecondaryColor}"
+                    MaximumTrackColor="#e1eae3"
+                    MinimumTrackColor="#bea9a2"
+                    HeightRequest="50" />
+            <Grid HorizontalOptions="Fill" Margin="10,-20,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="0"
+                       Margin="0"
+                       HorizontalOptions="Start" />
+                <Label Grid.Column="1" Text="132"
+                       HorizontalOptions="End" />
+            </Grid>
+        </StackLayout>
+
+        <Grid Grid.Row="2"
+              HorizontalOptions="CenterAndExpand"
+              VerticalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0"
+                   d:Text="You are older than me"
+                   Text="{Binding Text}"
+                   TextColor="{StaticResource SecondaryColor}"
+                   VerticalOptions="CenterAndExpand"
+                   FontSize="30" />
+            <Label Grid.Column="1"
+                   FontFamily="{StaticResource MaterialFontFamily}"
+                   Text="{Binding Icon}"
+                   TextColor="{StaticResource SecondaryColor}"
+                   VerticalOptions="CenterAndExpand"
+                   FontSize="30" />
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0"
+                    Command="{Binding OneOverFourCommand}"
+                    BackgroundColor="{StaticResource SecondaryColor}"
+                    TextColor="White"
+                    Text="1/4" />
+            <Button Grid.Column="1"
+                    Command="{Binding TwoOverFourCommand}"
+                    BackgroundColor="{StaticResource SecondaryColor}"
+                    TextColor="White"
+                    Text="2/4" />
+            <Button Grid.Column="2"
+                    Command="{Binding ThreeOverFourCommand}"
+                    BackgroundColor="{StaticResource SecondaryColor}"
+                    TextColor="White"
+                    Text="3/4" />
+            <Button Grid.Column="3"
+                    Command="{Binding FourOverFourCommand}"
+                    BackgroundColor="{StaticResource SecondaryColor}"
+                    TextColor="White"
+                    Text="4/4" />
+        </Grid>
+    </Grid>
 
 </ContentPage>
