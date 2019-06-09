@@ -5,7 +5,7 @@
         <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
         <ProductVersion>8.0.30703</ProductVersion>
         <SchemaVersion>2.0</SchemaVersion>
-        <ProjectGuid>{464DC22A-9CB1-4A49-B199-3CE7F00FF505}</ProjectGuid>
+        <ProjectGuid>{35D2657D-1C3F-4EE1-ABEB-3360E3703733}</ProjectGuid>
         <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
         <OutputType>Exe</OutputType>
         <RootNamespace>MyFirstApp.iOS</RootNamespace>
@@ -110,7 +110,7 @@
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\MyFirstApp\MyFirstApp.csproj">
-            <Project>{A6E8A166-5C62-4C39-A563-CDB213EB8703}</Project>
+            <Project>{4E926FAF-0973-41AE-BD02-B56A9FF9CEC4}</Project>
             <Name>MyFirstApp</Name>
         </ProjectReference>
     </ItemGroup>
